@@ -1,0 +1,307 @@
+/*------------------------------------*\
+全部頁面共用layout
+\*------------------------------------*/
+
+/**
+*header區塊內容
+**/
+body {
+  color: $color-text;
+  background-color: $color-bg;
+  font-size: 14px;
+  @include media-breakpoint-up(md) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 20px;
+  }
+}
+header {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: url(../images/bg-1.jpg) center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  > h2 {
+    font-family: 'Noto Sans TC';
+    font-size: 3.5em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: rgba($color-second, .8);
+    align-self: center;
+    @include media-breakpoint-up(sm) {
+      font-size: 6em;
+    }
+    @include media-breakpoint-up(md) {
+      font-size: 8em;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 10em;
+    }
+  }
+}
+.siteNav {
+  width: 100%;
+  max-width: $w;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  &::before {
+    content: '';
+    position: absolute;
+    border-radius: 3px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    // background-color: $color-white;
+    background-color: rgba($color-white, .8);
+    z-index: -1;
+    transition: width 0.3s .3s, background-color 0.3s;
+  }
+  >ul {
+    display: flex;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.15);
+    li {
+      flex:1 1 auto;
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      &:nth-of-type(1) {
+        a {
+          border-left: none;
+        }
+      }
+    }
+    a {
+      display: block;
+      color: $color-text;
+      font-weight: bold;
+      border-left: 1px solid rgba($color-text, .3);
+      transition: all .3s;
+      &:hover {
+        color: darken($color-second, 10);
+        text-shadow: 0 0 5px $color-white, 0 0 10px $color-white;
+      }
+      
+    }
+    &.active {
+      height: auto;
+    }
+    @include media-breakpoint-up(md) {
+      width: auto;
+      height: auto;
+      margin-left: auto;
+      box-shadow: none;
+      a {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    top: 4em;
+    &::before {
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.15);
+      width: calc(100% - 2rem);
+      background-color: rgba($color-white, .8);
+    }
+    &.siteNav-sticky {
+      position: fixed;
+      top: 0;
+      &::before {
+        width: 100vw;
+        background-color: $color-white;
+      }
+    }
+  }
+}
+.underline {
+  transition: all 0.3s;
+  position: absolute;
+  background: $color-second;
+  // top: 0;
+  bottom: 0;
+  left:0;
+  z-index: 0;
+  display: block;
+  // box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.logo {
+  background-color: $color-second;
+  padding: .75rem 1rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 3px 0 0 3px;
+  font-size: 1.25em;
+}
+.fancy-menu {
+  background-color: rgba($color-second,.5);
+  padding: .75rem 1rem;
+  margin-left: auto;
+  span {
+    background: #fff;
+    border-radius: 3px;
+    display: block;
+    height: 2px;
+    margin-top: 5px;
+    padding: 0;
+    position: relative;
+    transition: all 0.2s ease;
+    width: 25px;
+    &:last-child {
+      margin-bottom: 5px;
+    }
+  }
+  &.active {
+     span {
+       &:nth-of-type(1) {
+        transform: rotate3d(0, 0, 1, 45deg);
+        top: 7px;
+       }
+       &:nth-of-type(2) {
+        opacity: 0;
+       }
+       &:nth-of-type(3) {
+        transform: rotate3d(0, 0 , 1, -45deg);
+        top: -7px;
+       }
+     }
+  }
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+/**
+*main區塊內容
+**/
+section {
+  background-image:linear-gradient(to top right, $color-main-gradient, $color-main);
+  padding: 5rem 1rem;
+  .grid {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: $w;
+    display: flex;
+    flex-direction: column;
+  }
+  &:nth-child(odd) {
+    background-color: $color-bg;
+    background-image:none;
+    // background-image:linear-gradient(to top left, $color-bg, $color-white);
+    background-image: linear-gradient(to top left, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    figcaption {
+      background: rgba(white, .75);
+    }
+    .content {
+      background-color: $color-main;
+      color: whitesmoke;
+    }
+  }
+  figure {
+    position: relative;
+    width: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: $color-second;
+      clip-path: inset(0 0 0 100%);
+      transition: clip-path 0.3s;
+    }
+    img {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.6s 0.3s;
+      object-fit: cover;
+      // height: 500px;
+      height: 50vh;
+    }
+    figcaption {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 10px;
+      font-family: 'Noto Sans TC';
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: $color-second;
+      background: rgba($color-main, .75);
+      clip-path: inset(0 0 0 100%);
+      transition: clip-path 0.3s 0.9s;
+    }
+    &.animated{
+      &::before {
+        clip-path: inset(0);
+      }
+      img {
+        clip-path: inset(0);
+      }
+      figcaption {
+        clip-path: inset(0);
+      }
+    }
+  }
+  .content {
+    background-color: white;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    line-height: 2;
+    h3 {
+      margin-bottom: 1rem;
+    }
+    * {
+      &::selection {
+        background-color: $color-second;
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    padding: 10rem 1rem;
+    .grid {
+      flex-direction: row;
+    }
+    &:nth-child(odd) {
+      .grid {
+        flex-direction: row-reverse;
+      }
+    }
+    figure {
+      width: 65%;
+      img {
+        height: 100%;
+      }
+      figcaption {
+        font-size: 2rem;
+      }
+    }
+    .content {
+      width: 35%;
+    }
+  }
+}
+/**
+*footer區塊內容
+**/
+footer {
+  text-align: center;
+  padding: 1rem;
+}

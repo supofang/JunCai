@@ -1,0 +1,39 @@
+@mixin media-breakpoint-up($point) {
+  @if $point == 'xl' { 
+    @media only screen and (min-width: 1024px) {
+      @content; 
+    }  
+  }
+  @else if $point == 'md' {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point == 'sm' {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }     
+  }   
+}
+@mixin bg($img) {
+  background: url("../images/#{$img}");  
+  width: image-width("../images/#{$img}");  
+  height: image-height("../images/#{$img}");
+}  
+    
+@mixin bg-i($img){
+  background-image: url("../images/#{$img}");
+  background-repeat: no-repeat;
+}   
+    
+@mixin clearfix {
+  &:after, &:before {
+    content: "";
+    display: table;
+  }    
+  &:after {
+    clear: both;
+    *zoom: 1;
+  }
+}
+   

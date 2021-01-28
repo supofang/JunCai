@@ -1,0 +1,36 @@
+/*------------------------------------*\
+基本設定
+\*------------------------------------*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+}
+
+ul,ol {
+  list-style: none;
+}
+
+a {
+  outline: none; // for Firefox Google Chrome
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border-style: none; // Remove the border on images inside links in IE 10-.
+}
+
+svg {
+  // Workaround for the SVG overflow bug in IE10/11 is still required.
+  // See https://github.com/twbs/bootstrap/issues/26878
+  overflow: hidden;
+  vertical-align: middle;
+}
+

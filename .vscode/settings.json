@@ -1,0 +1,24 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/stylesheets"
+      // "savePath": "~/../css" //在資料匣中的任一sass檔的資料匣同層都會加一個css的資料匣
+    },
+    //  {
+    //      "extensionName": ".min.css",
+    //      "format": "compressed",
+    //      "savePath": "/dist/css"
+    //  }
+  ],
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    ".vscode/**"
+  ],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
