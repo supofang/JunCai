@@ -82,4 +82,17 @@
     observer.observe(target);
   }
 
+  // const popupLink = document.querySelector('.privacy')
+  // const popup = document.querySelector('.popup')
+  // popupLink.addEventListener("click",function(e) {
+  //   e.preventDefault();
+  //   popup.classList.add("active")
+  // })
+  // const close = document.querySelector('.icon-close')
+  // close.addEventListener('click',function(){
+  //   popup.classList.remove("active")
+  // })
+  // popup.addEventListener('click',function(){
+  //   this.classList.remove("active")
+  // })
 })()
